@@ -13,7 +13,16 @@ class Resources extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('workers', function (Blueprint $table) {
+            $table->increments('id');
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->integer('afp_id');
+            $table->integer('isapre_id');
+            $table->integer('ccaf_id');
+            $table->timestamps();
+            $table->softDeletes();
+        });
     }
 
     /**
@@ -23,6 +32,6 @@ class Resources extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('workers');
     }
 }

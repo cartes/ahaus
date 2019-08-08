@@ -20,6 +20,7 @@ class Resources extends Migration
             $table->integer('afp_id');
             $table->integer('isapre_id');
             $table->integer('ccaf_id');
+            $table->date('ingreso');
             $table->timestamps();
             $table->softDeletes();
         });

@@ -4,6 +4,8 @@
     <content url="file://$MODULE_DIR$">
       <sourceFolder url="file://$MODULE_DIR$/api-rest-ahaus/tests" isTestSource="true" packagePrefix="Tests\" />
       <sourceFolder url="file://$MODULE_DIR$/api-rest-ahaus/app" isTestSource="false" packagePrefix="App\" />
+      <excludeFolder url="file://$MODULE_DIR$/api-rest-ahaus/vendor/barryvdh/laravel-ide-helper" />
+      <excludeFolder url="file://$MODULE_DIR$/api-rest-ahaus/vendor/barryvdh/reflection-docblock" />
       <excludeFolder url="file://$MODULE_DIR$/api-rest-ahaus/vendor/beyondcode/laravel-dump-server" />
       <excludeFolder url="file://$MODULE_DIR$/api-rest-ahaus/vendor/composer" />
       <excludeFolder url="file://$MODULE_DIR$/api-rest-ahaus/vendor/dnoegel/php-xdg-base-dir" />
@@ -19,6 +21,7 @@
       <excludeFolder url="file://$MODULE_DIR$/api-rest-ahaus/vendor/hamcrest/hamcrest-php" />
       <excludeFolder url="file://$MODULE_DIR$/api-rest-ahaus/vendor/jakub-onderka/php-console-color" />
       <excludeFolder url="file://$MODULE_DIR$/api-rest-ahaus/vendor/jakub-onderka/php-console-highlighter" />
+      <excludeFolder url="file://$MODULE_DIR$/api-rest-ahaus/vendor/justinrainbow/json-schema" />
       <excludeFolder url="file://$MODULE_DIR$/api-rest-ahaus/vendor/laravel/framework" />
       <excludeFolder url="file://$MODULE_DIR$/api-rest-ahaus/vendor/laravel/tinker" />
       <excludeFolder url="file://$MODULE_DIR$/api-rest-ahaus/vendor/league/flysystem" />
@@ -59,12 +62,15 @@
       <excludeFolder url="file://$MODULE_DIR$/api-rest-ahaus/vendor/sebastian/recursion-context" />
       <excludeFolder url="file://$MODULE_DIR$/api-rest-ahaus/vendor/sebastian/resource-operations" />
       <excludeFolder url="file://$MODULE_DIR$/api-rest-ahaus/vendor/sebastian/version" />
+      <excludeFolder url="file://$MODULE_DIR$/api-rest-ahaus/vendor/seld/jsonlint" />
+      <excludeFolder url="file://$MODULE_DIR$/api-rest-ahaus/vendor/seld/phar-utils" />
       <excludeFolder url="file://$MODULE_DIR$/api-rest-ahaus/vendor/swiftmailer/swiftmailer" />
       <excludeFolder url="file://$MODULE_DIR$/api-rest-ahaus/vendor/symfony/console" />
       <excludeFolder url="file://$MODULE_DIR$/api-rest-ahaus/vendor/symfony/css-selector" />
       <excludeFolder url="file://$MODULE_DIR$/api-rest-ahaus/vendor/symfony/debug" />
       <excludeFolder url="file://$MODULE_DIR$/api-rest-ahaus/vendor/symfony/event-dispatcher" />
       <excludeFolder url="file://$MODULE_DIR$/api-rest-ahaus/vendor/symfony/event-dispatcher-contracts" />
+      <excludeFolder url="file://$MODULE_DIR$/api-rest-ahaus/vendor/symfony/filesystem" />
       <excludeFolder url="file://$MODULE_DIR$/api-rest-ahaus/vendor/symfony/finder" />
       <excludeFolder url="file://$MODULE_DIR$/api-rest-ahaus/vendor/symfony/http-foundation" />
       <excludeFolder url="file://$MODULE_DIR$/api-rest-ahaus/vendor/symfony/http-kernel" />

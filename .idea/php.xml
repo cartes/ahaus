@@ -89,6 +89,9 @@
       <path value="$PROJECT_DIR$/api-rest-ahaus/vendor/justinrainbow/json-schema" />
       <path value="$PROJECT_DIR$/api-rest-ahaus/vendor/barryvdh/laravel-ide-helper" />
       <path value="$PROJECT_DIR$/api-rest-ahaus/vendor/symfony/filesystem" />
+      <path value="$PROJECT_DIR$/api-rest-ahaus/vendor/doctrine/cache" />
+      <path value="$PROJECT_DIR$/api-rest-ahaus/vendor/doctrine/dbal" />
+      <path value="$PROJECT_DIR$/api-rest-ahaus/vendor/doctrine/event-manager" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="7.1" />

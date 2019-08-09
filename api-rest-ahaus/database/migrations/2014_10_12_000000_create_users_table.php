@@ -45,11 +45,16 @@ class CreateUsersTable extends Migration
             $table->foreign('role_id')->references('id')->on('roles');
             $table->unsignedInteger('comunity_id');
             $table->foreign('comunity_id')->references('id')->on('comunity');
-            $table->unsignedInteger('unit_id');
+            $table->unsignedInteger('unit_id')->nullable();
             $table->foreign('unit_id')->references('id')->on('units');
             $table->string('name');
             $table->string('surname');
+            $table->string('tax_id');
             $table->string('email')->unique();
+            $table->timestamp('birth_date');
+            $table->string('profesion')->nullable();
+            $table->string('institute')->nullable();
+
             $table->string('password');
             $table->rememberToken();
             $table->string('picture')->nullable();

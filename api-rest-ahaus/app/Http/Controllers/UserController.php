@@ -42,6 +42,7 @@ class UserController extends Controller
                 $user->surname = (isset($params_array['surname'])) ? $params_array['surname'] : null;
                 $user->email = (isset($params_array['email'])) ? $params_array['email'] : null;
                 $user->community_id = (isset($params_array['community_id'])) ? $params_array['community_id'] : null;
+                $user->role_id = (isset($params_array['role_id'])) ? $params_array['role_id'] : 2;
                 $user->birth_date = (isset($birth)) ? $birth : null;
                 $user->profesion = (isset($params_array['profesion'])) ? $params_array['profesion'] : null;
                 $user->institute = (isset($params_array['institute'])) ? $params_array['institute'] : null;

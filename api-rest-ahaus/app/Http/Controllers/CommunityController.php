@@ -17,7 +17,7 @@ class CommunityController extends Controller
                 'name' => 'required|alpha',
                 'description' => 'required|alpha',
                 'address' => 'required|alpha',
-                'email' => 'required|email',
+                'email' => 'required|email|unique:communities,email',
                 'phone' => 'required',
                 'unidades' => 'required|integer'
             ]);

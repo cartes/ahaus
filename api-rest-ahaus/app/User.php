@@ -46,6 +46,8 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\User whereTaxId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\User whereUnitId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\User whereUpdatedAt($value)
+ * @property int $community_id
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\User whereCommunityId($value)
  */
 class User extends Authenticatable
 {

@@ -19,21 +19,10 @@ class CreateUsersTable extends Migration
             $table->string('description');
         });
 
-        Schema::create('comunity', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('name')->comment('Nombre de la comunidad');
-            $table->string('description');
-            $table->string('address');
-            $table->string('email');
-            $table->string('phone');
-            $table->integer('unidades');
-            $table->timestamps();
-        });
-
         Schema::create('units', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedInteger('comunity_id');
-            $table->foreign('comunity_id')->references('id')->on('comunity');
+            $table->unsignedInteger('community_id');
+            $table->foreign('community_id')->references('id')->on('communities');
             $table->string('name')->comment('nombre de la Unidad. Ejemplo: 801, 30A');
             $table->float('metros');
             $table->timestamps();
@@ -43,15 +32,15 @@ class CreateUsersTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedInteger('role_id')->default(\App\Role::REGULAR);
             $table->foreign('role_id')->references('id')->on('roles');
-            $table->unsignedInteger('comunity_id');
-            $table->foreign('comunity_id')->references('id')->on('comunity');
+            $table->unsignedInteger('community_id');
+            $table->foreign('community_id')->references('id')->on('communities');
             $table->unsignedInteger('unit_id')->nullable();
             $table->foreign('unit_id')->references('id')->on('units');
             $table->string('name');
             $table->string('surname');
             $table->string('tax_id');
             $table->string('email')->unique();
-            $table->timestamp('birth_date');
+            $table->timestamp('birth_date')->nullable();
             $table->string('profesion')->nullable();
             $table->string('institute')->nullable();
 
@@ -80,7 +69,6 @@ class CreateUsersTable extends Migration
         Schema::dropIfExists('user_social_accounts');
         Schema::dropIfExists('users');
         Schema::dropIfExists('units');
-        Schema::dropIfExists('comunity');
         Schema::dropIfExists('roles');
     }
 }

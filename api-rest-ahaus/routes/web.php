@@ -15,4 +15,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::post('user/register', 'UserController@register');
+Route::post('api/user/register', 'UserController@register');
+
+
+Route::post('api/community/register', 'CommunityController@register');

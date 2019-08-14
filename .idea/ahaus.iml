@@ -21,6 +21,7 @@
       <excludeFolder url="file://$MODULE_DIR$/api-rest-ahaus/vendor/erusev/parsedown" />
       <excludeFolder url="file://$MODULE_DIR$/api-rest-ahaus/vendor/fideloper/proxy" />
       <excludeFolder url="file://$MODULE_DIR$/api-rest-ahaus/vendor/filp/whoops" />
+      <excludeFolder url="file://$MODULE_DIR$/api-rest-ahaus/vendor/firebase/php-jwt" />
       <excludeFolder url="file://$MODULE_DIR$/api-rest-ahaus/vendor/fzaninotto/faker" />
       <excludeFolder url="file://$MODULE_DIR$/api-rest-ahaus/vendor/hamcrest/hamcrest-php" />
       <excludeFolder url="file://$MODULE_DIR$/api-rest-ahaus/vendor/jakub-onderka/php-console-color" />

@@ -3,12 +3,52 @@
 namespace App\Http\Controllers;
 
 use App\User;
+use App\Helpers\JwtAuth;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
-    public function register(Request $request) {
+    public function login(Request $request)
+    {
+
+        $json = $request->input('json', null);
+        $params = json_decode($json);
+        $params_array = json_decode($json, true);
+
+        if (!empty($params_array) && !empty($params)) {
+            $validate = \Validator::make($params_array, [
+                'email' => 'required|email',
+                'password' => 'required'
+            ]);
+
+            if ($validate->fails()) {
+                $signup = [
+                    'status' => 'error',
+                    'code' => 400,
+                    'message' => __('Login no valido'),
+                    'errors' => $validate->errors()
+                ];
+            } else {
+                $jwtAuth = new JwtAuth();
+                $pwd = hash("sha256", $params->password);
+
+                $signup = $jwtAuth->signup($params->email, $pwd, true);
+                $signup['code'] = 200;
+            }
+        } else {
+            $signup = [
+                'status' => 'error',
+                'code' => 400,
+                'message' => __('Debes ingresar datos validos')
+            ];
+        }
+
+        return response()->json($signup, $signup['code']);
+    }
+
+    public function register(Request $request)
+    {
         $json = $request->input('json', null);
         $params = json_decode($json);
         $params_array = json_decode($json, true);
@@ -20,7 +60,6 @@ class UserController extends Controller
                 'tax_id' => 'required|unique:users,tax_id',
                 'email' => 'required|email',
                 'password' => 'required|min:4',
-                'community_id' => 'required|integer'
             ]);
 
             if ($validate->fails()) {

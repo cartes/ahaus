@@ -32,7 +32,7 @@ class CreateUsersTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedInteger('role_id')->default(\App\Role::REGULAR);
             $table->foreign('role_id')->references('id')->on('roles');
-            $table->unsignedInteger('community_id');
+            $table->unsignedInteger('community_id')->nullable();
             $table->foreign('community_id')->references('id')->on('communities');
             $table->unsignedInteger('unit_id')->nullable();
             $table->foreign('unit_id')->references('id')->on('units');

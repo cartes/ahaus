@@ -93,6 +93,7 @@
       <path value="$PROJECT_DIR$/api-rest-ahaus/vendor/doctrine/dbal" />
       <path value="$PROJECT_DIR$/api-rest-ahaus/vendor/doctrine/event-manager" />
       <path value="$PROJECT_DIR$/api-rest-ahaus/vendor/caouecs/laravel-lang" />
+      <path value="$PROJECT_DIR$/api-rest-ahaus/vendor/firebase/php-jwt" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="7.1" />

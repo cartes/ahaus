@@ -33,8 +33,7 @@ class UserController extends Controller
                 $jwtAuth = new JwtAuth();
                 $pwd = hash("sha256", $params->password);
 
-                $signup = $jwtAuth->signup($params->email, $pwd, true);
-                $signup['code'] = 200;
+                $signup = $jwtAuth->signup($params->email, $pwd);
             }
         } else {
             $signup = [
@@ -44,7 +43,7 @@ class UserController extends Controller
             ];
         }
 
-        return response()->json($signup, $signup['code']);
+        return response()->json($signup, 200);
     }
 
     public function register(Request $request)

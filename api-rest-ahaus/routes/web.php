@@ -17,5 +17,6 @@ Route::get('/', function () {
 
 Route::post('api/user/register', 'UserController@register');
 
-
 Route::post('api/community/register', 'CommunityController@register');
+
+Route::post('api/unit/register', 'UnitController@register');

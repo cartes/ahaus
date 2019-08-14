@@ -24,7 +24,7 @@ class CreateUsersTable extends Migration
             $table->unsignedInteger('community_id');
             $table->foreign('community_id')->references('id')->on('communities');
             $table->string('name')->comment('nombre de la Unidad. Ejemplo: 801, 30A');
-            $table->float('metros');
+            $table->float('meters');
             $table->timestamps();
         });
 

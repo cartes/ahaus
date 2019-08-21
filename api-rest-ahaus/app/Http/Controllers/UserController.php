@@ -105,4 +105,42 @@ class UserController extends Controller
 
         return response()->json($data, $data['code']);
     }
+
+    public function update(Request $request) {
+        $token = $request->header('Authorization');
+        $jwt = new JwtAuth();
+
+        $checkToken = $jwt->checkToken($token);
+
+        if ($checkToken) {
+
+            $json = $request->input('json', null);
+            $params_array = json_decode($json);
+
+            $user = $jwt->checkToken($token, true);
+
+            $validate = \Validator::make($params_array, [
+                'name' => 'required|alpha',
+                'surname' => 'required|alpha',
+                'tax_id' => 'required|unique:users' . $user->sub,
+                'email' => 'required|email',
+                'password' => 'required|min:4',
+            ]);
+
+            $data = [
+                'status' => 'error',
+                'code' => 400,
+                'message' => __('Usuario no identificado')
+            ];
+
+        } else {
+            $data = [
+                'status' => 'error',
+                'code' => 400,
+                'message' => __('Usuario no identificado')
+            ];
+        }
+
+        return response()->json($data, $data['code']);
+    }
 }

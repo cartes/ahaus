@@ -2,9 +2,8 @@
 
 namespace App\Helpers;
 
-use Firebase\JWT\JWT;
-use Illuminate\Support\Facades\DB;
 use App\User;
+use Firebase\JWT\JWT;
 
 class JwtAuth
 {
@@ -13,6 +12,30 @@ class JwtAuth
     public function __construct()
     {
         $this->key = 'udKhKwTvGJMB5bSdUmth';
+    }
+
+    public function checkToken($jwt, $getIdentity = false)
+    {
+        $auth = false;
+
+        try {
+            $decoded = JWT::decode($jwt, $this->key, ["HS256"]);
+        } catch (\UnexpectedValueException $e) {
+            $auth = false;
+        } catch (\DomainException $e){
+            $auth = false;
+        }
+
+        if (!empty($decoded) && is_object($decoded) && isset($decoded->sub)) {
+            $auth = true;
+        } else {
+            $auth = false;
+        }
+
+        if ($getIdentity) {
+            return $decoded;
+        }
+        return $auth;
     }
 
     public function signup($email, $password, $get_token = null)

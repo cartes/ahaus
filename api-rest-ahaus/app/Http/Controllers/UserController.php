@@ -9,6 +9,13 @@ use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware("api.auth", [
+            "except" => ['index', 'login', 'store']
+        ]);
+    }
+
     public function login(Request $request)
     {
 
@@ -114,7 +121,7 @@ class UserController extends Controller
         $checkToken = $jwt->checkToken($token);
 
         $json = $request->input('json', null);
-        $params_array = json_decode($json);
+        $params_array = json_decode($json, true);
 
         if ($checkToken && !empty($params_array)) {
 
@@ -123,9 +130,8 @@ class UserController extends Controller
             $validate = \Validator::make($params_array, [
                 'name' => 'required|alpha',
                 'surname' => 'required|alpha',
-                'tax_id' => 'required|unique:users' . $user->sub,
-                'email' => 'required|email',
-                'password' => 'required|min:4',
+                'tax_id' => 'required|unique:users,id,' . $user->sub,
+                'email' => 'required|email'
             ]);
 
             unset($params_array['id']);
@@ -143,13 +149,13 @@ class UserController extends Controller
                 ];
             } else {
                 $user_update = User::where('id', $user->sub)->update($params_array);
+                $data = [
+                    'status' => 'success',
+                    'code' => 200,
+                    'user' => $user,
+                    'changes' => $params_array
+                ];
             }
-
-            $data = [
-                'status' => 'error',
-                'code' => 400,
-                'message' => __('Usuario no identificado')
-            ];
 
         } else {
             $data = [

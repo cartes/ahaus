@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\User;
 use App\Helpers\JwtAuth;
+use App\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 
@@ -106,16 +106,17 @@ class UserController extends Controller
         return response()->json($data, $data['code']);
     }
 
-    public function update(Request $request) {
+    public function update(Request $request)
+    {
         $token = $request->header('Authorization');
         $jwt = new JwtAuth();
 
         $checkToken = $jwt->checkToken($token);
 
-        if ($checkToken) {
+        $json = $request->input('json', null);
+        $params_array = json_decode($json);
 
-            $json = $request->input('json', null);
-            $params_array = json_decode($json);
+        if ($checkToken && !empty($params_array)) {
 
             $user = $jwt->checkToken($token, true);
 
@@ -126,6 +127,23 @@ class UserController extends Controller
                 'email' => 'required|email',
                 'password' => 'required|min:4',
             ]);
+
+            unset($params_array['id']);
+            unset($params_array['role_id']);
+            unset($params_array['password']);
+            unset($params_array['created_at']);
+            unset($params_array['remember_token']);
+
+            if ($validate->fails()) {
+                $data = [
+                    'status' => 'error',
+                    'code' => 200,
+                    'message' => __('Error en la validación'),
+                    'errors' => $validate->errors()
+                ];
+            } else {
+                $user_update = User::where('id', $user->sub)->update($params_array);
+            }
 
             $data = [
                 'status' => 'error',

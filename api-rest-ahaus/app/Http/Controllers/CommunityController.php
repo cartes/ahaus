@@ -7,7 +7,27 @@ use Illuminate\Http\Request;
 
 class CommunityController extends Controller
 {
-    public function register(Request $request) {
+
+    public function __construct()
+    {
+        $this->middleware("api.auth", [
+            "except" => ['index']
+        ]);
+    }
+
+    public function index() {
+        $communities = Community::all();
+
+        $data = [
+            'status' => 'success',
+            'code' => 200,
+            'community' => $communities
+        ];
+
+        return response()->json($data, $data['code']);
+    }
+
+    public function create(Request $request) {
         $json = $request->input('json', null);
         $params = json_decode($json);
         $params_array = json_decode($json, true);

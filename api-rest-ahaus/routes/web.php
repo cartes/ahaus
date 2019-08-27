@@ -11,14 +11,17 @@
 |
 */
 
+use App\Http\Middleware\ApiAuthMiddleware;
+
 Route::get('/', function () {
     return view('welcome');
 });
 
 Route::post('api/user/register', 'UserController@register');
 Route::post('api/user/login', 'UserController@login');
-Route::put('api/user/update', 'UserController@update');
+Route::put('api/user/update', 'UserController@update')->middleware(ApiAuthMiddleware::class);
+Route::get('api/user/detail/{id}', 'UserController@detail');
 
-Route::post('api/community/register', 'CommunityController@register');
+Route::resource('api/community', 'CommunityController');
 
 Route::post('api/unit/register', 'UnitController@register');

@@ -126,7 +126,7 @@ class UserController extends Controller
             $data  = [
                 'status' => 'error',
                 'code' => '404',
-                'message' => __('El usuario {$id} no existe')
+                'message' => __('El usuario ' . $id . ' no existe')
             ];
         }
 

@@ -15,7 +15,8 @@ class CommunityController extends Controller
         ]);
     }
 
-    public function index() {
+    public function index()
+    {
         $communities = Community::all();
 
         $data = [
@@ -27,7 +28,8 @@ class CommunityController extends Controller
         return response()->json($data, $data['code']);
     }
 
-    public function show($id) {
+    public function show($id)
+    {
         $community = Community::find($id);
 
         if (is_object($community)) {
@@ -47,7 +49,8 @@ class CommunityController extends Controller
         return response()->json($data, $data['code']);
     }
 
-    public function create(Request $request) {
+    public function store(Request $request)
+    {
         $json = $request->input('json', null);
         $params = json_decode($json);
         $params_array = json_decode($json, true);
@@ -93,6 +96,47 @@ class CommunityController extends Controller
                 'status' => 'error',
                 'code' => 400,
                 'message' => __('No se han enviado datos')
+            ];
+        }
+
+        return response()->json($data, $data['code']);
+    }
+
+    public function update($id, Request $request)
+    {
+        $json = $request->input('json', null);
+
+        $params_array = json_decode($json, true);
+
+        if (!empty($params_array)) {
+            $validate = \Validator::make($params_array, [
+                'name' => 'required'
+            ]);
+
+            unset($params_array['id']);
+            unset($params_array['created_at']);
+
+            if ($validate->fails()) {
+                $data = [
+                    "status" => "error",
+                    "code" => 400,
+                    "message" => __('Faltan datos'),
+                    "error" => $validate->errors()
+                ];
+            } else {
+                $community = Community::where('id', $id)->update($params_array);
+
+                $data = [
+                    'status' => 'success',
+                    "code" => 200,
+                    "category" => $params_array
+                ];
+            }
+        } else {
+            $data = [
+                "status"  => "error",
+                "code"  => 400,
+                "message" => __("No se ha recibido ningún dato")
             ];
         }
 

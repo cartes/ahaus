@@ -27,6 +27,26 @@ class CommunityController extends Controller
         return response()->json($data, $data['code']);
     }
 
+    public function show($id) {
+        $community = Community::find($id);
+
+        if (is_object($community)) {
+            $data = [
+                "status" => "success",
+                "code" => 200,
+                "community" => $community
+            ];
+        } else {
+            $data = [
+                "status" => "error",
+                "code" => 404,
+                "message" => __("Comunidad no existe")
+            ];
+        }
+
+        return response()->json($data, $data['code']);
+    }
+
     public function create(Request $request) {
         $json = $request->input('json', null);
         $params = json_decode($json);

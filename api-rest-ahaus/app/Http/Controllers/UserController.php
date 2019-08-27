@@ -64,7 +64,7 @@ class UserController extends Controller
                 'name' => 'required|alpha',
                 'surname' => 'required|alpha',
                 'tax_id' => 'required|unique:users,tax_id',
-                'email' => 'required|email',
+                'email' => 'required|email,unique',
                 'password' => 'required|min:4',
             ]);
 
@@ -107,6 +107,26 @@ class UserController extends Controller
                 'status' => 'error',
                 'code' => 400,
                 'message' => __('No se han enviado datos')
+            ];
+        }
+
+        return response()->json($data, $data['code']);
+    }
+
+    public function detail($id) {
+        $user = User::find($id);
+
+        if(is_object($user)) {
+            $data = [
+                'status' => 'success',
+                'code' => '200',
+                'user' => $user
+            ];
+        } else {
+            $data  = [
+                'status' => 'error',
+                'code' => '404',
+                'message' => __('El usuario {$id} no existe')
             ];
         }
 

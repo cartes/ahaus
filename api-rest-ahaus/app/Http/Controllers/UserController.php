@@ -12,7 +12,7 @@ class UserController extends Controller
     public function __construct()
     {
         $this->middleware("api.auth", [
-            "except" => ['index', 'login', 'store']
+            "except" => ['index', 'login', 'store', 'register']
         ]);
     }
 
@@ -64,7 +64,7 @@ class UserController extends Controller
                 'name' => 'required|alpha',
                 'surname' => 'required|alpha',
                 'tax_id' => 'required|unique:users,tax_id',
-                'email' => 'required|email,unique',
+                'email' => 'required|email',
                 'password' => 'required|min:4',
             ]);
 

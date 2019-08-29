@@ -2,6 +2,7 @@
 
 namespace App\Http\Middleware;
 
+use App\Helpers\JwtAuth;
 use Closure;
 
 class ApiAuthMiddleware

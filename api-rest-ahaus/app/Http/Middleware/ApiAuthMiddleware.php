@@ -18,6 +18,7 @@ class ApiAuthMiddleware
     {
         $token = $request->header('Authorization');
         $jwt = new JwtAuth();
+        $token = str_replace('"', '', $token);
 
         $checkToken = $jwt->checkToken($token);
 

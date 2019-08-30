@@ -12,7 +12,7 @@ class UserController extends Controller
     public function __construct()
     {
         $this->middleware("api.auth", [
-            "except" => ['index', 'login', 'store', 'register']
+            "except" => ['index', 'login', 'store']
         ]);
     }
 
@@ -184,6 +184,20 @@ class UserController extends Controller
                 'message' => __('Usuario no identificado')
             ];
         }
+
+        return response()->json($data, $data['code']);
+    }
+
+    public function destroy($id, Request $request) {
+        $user = User::find($id);
+
+        $user->delete();
+
+        $data = [
+            'status' => 'success',
+            'code' => 200,
+            'user' => $user
+        ];
 
         return response()->json($data, $data['code']);
     }

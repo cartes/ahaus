@@ -12,7 +12,7 @@ export class LoginComponent implements OnInit {
 
     constructor() {
         this.page_title = "Identifícate";
-        this.user = new User(1, '','','', '', '', '', '', '', 'ROLE_USER', '', '', '');
+        this.user = new User(1, '', '', '', '', '', '', '', '', 1, null, null, '');
     }
 
     ngOnInit() {

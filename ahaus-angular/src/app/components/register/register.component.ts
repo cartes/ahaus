@@ -18,7 +18,7 @@ export class RegisterComponent implements OnInit {
         private _userService: UserService
     ) {
         this.page_title = 'Regístrate';
-        this.user = new User(1, '', '', '', '', '', '', '', '', 'ROLE_USER', '', '', '');
+        this.user = new User(1, '', '', '', '', '', '', '', '', 1, null, null, '');
 
     }
 

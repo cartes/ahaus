@@ -24,9 +24,8 @@ export class UserService {
         }
 
         let json = JSON.stringify(user);
-        console.log(json);
         let params = 'json='+json;
-        let headers = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoder');
+        let headers = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded');
 
         return this._http.post(this.url+'user/login', params, {headers: headers});
     }

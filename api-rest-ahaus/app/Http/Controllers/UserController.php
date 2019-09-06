@@ -14,6 +14,7 @@ class UserController extends Controller
         $this->middleware("api.auth", [
             "except" => ['index', 'login', 'store']
         ]);
+        $this->middleware("cors");
     }
 
     public function login(Request $request)

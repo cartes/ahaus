@@ -14,6 +14,8 @@ export class LoginComponent implements OnInit {
     public page_title: string;
     public user: User;
     public status: string;
+    public token;
+    public identity;
 
     constructor(
         private _userService: UserService
@@ -28,7 +30,26 @@ export class LoginComponent implements OnInit {
     onSubmit(form) {
         this._userService.signup(this.user).subscribe(
             response => {
-                console.log(response);
+                // Token
+                if (response.status != 'error') {
+                    this.status = 'success';
+                    this.token = response;
+
+                    //Usuario identificado
+                    this._userService.signup(this.user, true).subscribe(
+                        response => {
+                            this.identity = response;
+
+                            console.log(this.token);
+                            console.log(this.identity);
+                        },
+                        error => {
+                            this.status = 'error';
+                            console.log(<any>error);
+                        }
+                    );
+
+                }
             },
             error => {
                 this.status = 'error';

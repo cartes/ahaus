@@ -13,6 +13,7 @@ import {UserService} from "../../services/user.service";
 export class LoginComponent implements OnInit {
     public page_title: string;
     public user: User;
+    public status: string;
 
     constructor(
         private _userService: UserService
@@ -25,8 +26,15 @@ export class LoginComponent implements OnInit {
     }
 
     onSubmit(form) {
-        console.log(form);
-        form.reset();
+        this._userService.signup(this.user).subscribe(
+            response => {
+                console.log(response);
+            },
+            error => {
+                this.status = 'error';
+                console.log(<any>error);
+            }
+        );
     }
 
 }

@@ -6,6 +6,7 @@ import {Routes, RouterModule} from "@angular/router";
 import {LoginComponent} from "./components/login/login.component";
 import {RegisterComponent} from "./components/register/register.component";
 import {ErrorComponent} from "./components/error/error.component";
+import {UserEditComponent} from "./components/user-edit/user-edit.component";
 
 //Rutas
 
@@ -15,6 +16,7 @@ const appRoutes: Routes = [
     {path: 'login', component: LoginComponent},
     {path: 'logout/:sure', component: LoginComponent},
     {path: 'register', component: RegisterComponent},
+    {path: 'ajustes', component:UserEditComponent},
     {path: '**', component: ErrorComponent}
 ];
 

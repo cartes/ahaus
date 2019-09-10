@@ -3,7 +3,7 @@ export class User {
         public id: number,
         public name: string,
         public surname: string,
-        public taxId: string,
+        public tax_id: string,
         public email: string,
         public birthDate: string,
         public profesion: string,

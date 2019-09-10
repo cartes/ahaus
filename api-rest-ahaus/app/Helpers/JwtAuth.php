@@ -58,7 +58,7 @@ class JwtAuth
                 'email' => $user->email,
                 'name' => $user->name,
                 'surname' => $user->surname,
-                'taxId' => $user->tax_id,
+                'tax_id' => $user->tax_id,
                 'birthdate' => $user->birthdate,
                 'profesion' => $user->profesion,
                 'institute' => $user->institute,

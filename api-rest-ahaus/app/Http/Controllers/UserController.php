@@ -118,17 +118,18 @@ class UserController extends Controller
         return response()->json($data, $data['code']);
     }
 
-    public function detail($id) {
+    public function detail($id)
+    {
         $user = User::find($id);
 
-        if(is_object($user)) {
+        if (is_object($user)) {
             $data = [
                 'status' => 'success',
                 'code' => '200',
                 'user' => $user
             ];
         } else {
-            $data  = [
+            $data = [
                 'status' => 'error',
                 'code' => '404',
                 'message' => __('El usuario ' . $id . ' no existe')
@@ -193,7 +194,8 @@ class UserController extends Controller
         return response()->json($data, $data['code']);
     }
 
-    public function destroy($id, Request $request) {
+    public function destroy($id, Request $request)
+    {
         $user = User::find($id);
 
         $user->delete();
@@ -203,6 +205,32 @@ class UserController extends Controller
             'code' => 200,
             'user' => $user
         ];
+
+        return response()->json($data, $data['code']);
+    }
+
+    public function upload(Request $request)
+    {
+        $image = $request->file("file0");
+
+        if ($image) {
+            $image_name = time() . $image->getClientOriginalName();
+            \Storage::disk("users")->put($image_name, \File::get($image));
+
+            $data = [
+                'status' => 'success',
+                'code' => 200,
+                'image' => $image_name
+            ];
+        } else {
+
+
+            $data = [
+                'code' => 400,
+                'status' => 'error',
+                'message' => 'Error al subir la imagen'
+            ];
+        }
 
         return response()->json($data, $data['code']);
     }

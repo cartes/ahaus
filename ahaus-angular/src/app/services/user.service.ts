@@ -31,7 +31,7 @@ export class UserService {
         return this._http.post(this.url + 'user/login', params, {headers: headers});
     }
 
-    update(token, user) {
+    update(token, user): Observable<any> {
         let json = JSON.stringify(user);
         let params = "json=" + json;
 

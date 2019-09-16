@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {User} from "../../models/user";
 import {UserService} from "../../services/user.service";
+import {global} from "../../services/global";
 
 @Component({
     selector: 'app-user-edit',
@@ -17,6 +18,31 @@ export class UserEditComponent implements OnInit {
     public identity;
     public token;
     public status;
+    // public afuConfig = {
+    //     multiple: false,
+    //     formatsAllowed: ".jpg,.png",
+    //     maxSize: "1",
+    //     uploadAPI:  {
+    //         url:global.url + '/api/user/upload',
+    //         headers: {
+    //             "Content-Type" : "text/plain;charset=UTF-8",
+    //             "Authorization" : `Bearer ${token}`
+    //         }
+    //     },
+    //     theme: "dragNDrop",
+    //     hideProgressBar: true,
+    //     hideResetBtn: true,
+    //     hideSelectBtn: true,
+    //     replaceTexts: {
+    //         selectFileBtn: 'Select Files',
+    //         resetBtn: 'Reset',
+    //         uploadBtn: 'Upload',
+    //         dragNDropBox: 'Drag N Drop',
+    //         attachPinBtn: 'Attach Files...',
+    //         afterUploadMsg_success: 'Successfully Uploaded !',
+    //         afterUploadMsg_error: 'Upload Failed !'
+    //     }
+    // };
 
     constructor(
         private _userService: UserService

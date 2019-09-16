@@ -6,13 +6,14 @@ use App\Helpers\JwtAuth;
 use App\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 
 class UserController extends Controller
 {
     public function __construct()
     {
         $this->middleware("api.auth", [
-            "except" => ['index', 'login', 'store']
+            "except" => ['index', 'login', 'store', 'getImage']
         ]);
         $this->middleware("cors");
     }
@@ -213,7 +214,19 @@ class UserController extends Controller
     {
         $image = $request->file("file0");
 
-        if ($image) {
+        // Validacion de imágenes
+
+        $validate = \Validator::make($request->all(), [
+            'file0' => 'required|image|mimes:jpg,jpeg,png,gif'
+        ]);
+
+        if (!$image || $validate->fails()) {
+            $data = [
+                'code' => 400,
+                'status' => 'error',
+                'message' => 'Error al subir la imagen'
+            ];
+        } else {
             $image_name = time() . $image->getClientOriginalName();
             \Storage::disk("users")->put($image_name, \File::get($image));
 
@@ -222,16 +235,25 @@ class UserController extends Controller
                 'code' => 200,
                 'image' => $image_name
             ];
-        } else {
-
-
-            $data = [
-                'code' => 400,
-                'status' => 'error',
-                'message' => 'Error al subir la imagen'
-            ];
         }
 
         return response()->json($data, $data['code']);
+    }
+
+    public function getImage($filename) {
+        $isset = \Storage::disk('users')->exists($filename);
+
+        if ($isset) {
+            $file = \Storage::disk('users')->get($filename);
+            return new Response($file, 200);
+        } else {
+            $data = [
+                'code' => 400,
+                'status' => 'error',
+                'message' => 'Archivo no existe'
+            ];
+
+            return response()->json($data, $data['code']);
+        }
     }
 }

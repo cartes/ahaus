@@ -18,31 +18,24 @@ export class UserEditComponent implements OnInit {
     public identity;
     public token;
     public status;
-    // public afuConfig = {
-    //     multiple: false,
-    //     formatsAllowed: ".jpg,.png",
-    //     maxSize: "1",
-    //     uploadAPI:  {
-    //         url:global.url + '/api/user/upload',
-    //         headers: {
-    //             "Content-Type" : "text/plain;charset=UTF-8",
-    //             "Authorization" : `Bearer ${token}`
-    //         }
-    //     },
-    //     theme: "dragNDrop",
-    //     hideProgressBar: true,
-    //     hideResetBtn: true,
-    //     hideSelectBtn: true,
-    //     replaceTexts: {
-    //         selectFileBtn: 'Select Files',
-    //         resetBtn: 'Reset',
-    //         uploadBtn: 'Upload',
-    //         dragNDropBox: 'Drag N Drop',
-    //         attachPinBtn: 'Attach Files...',
-    //         afterUploadMsg_success: 'Successfully Uploaded !',
-    //         afterUploadMsg_error: 'Upload Failed !'
-    //     }
-    // };
+    public afuConfig = {
+        multiple: false,
+        formatsAllowed: ".jpg,.png,.gif,.jpeg",
+        maxSize: "20",
+        uploadAPI:  {
+            url: global.url + 'user/upload',
+            headers: {
+                "Authorization" : this._userService.getToken()
+            }
+        },
+        theme: "attachPin",
+        hideProgressBar: false,
+        hideResetBtn: true,
+        hideSelectBtn: false,
+        replaceTexts: {
+            attachPinBtn: "Sube tu avatar..."
+        }
+    };
 
     constructor(
         private _userService: UserService
@@ -97,6 +90,10 @@ export class UserEditComponent implements OnInit {
                 console.log(<any>error);
             }
         )
+    }
+
+    avatarUpload(data) {
+        console.log(data);
     }
 
 }

@@ -55,7 +55,9 @@
 
         <div class="form-group">
             <angular-file-uploader
-                    [config]="afuConfig">
+                    [config]="afuConfig"
+                    [resetUpload]=resetVar
+                    (ApiResponse)="avatarUpload($event)">
             </angular-file-uploader>
         </div>
 

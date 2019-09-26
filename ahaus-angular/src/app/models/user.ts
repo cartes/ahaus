@@ -11,7 +11,7 @@ export class User {
         public password: string,
         public roleId: number,
         public community: number,
-        public unitId: number,
+        public unit_id: number,
         public picture: string
     ) {}
 }

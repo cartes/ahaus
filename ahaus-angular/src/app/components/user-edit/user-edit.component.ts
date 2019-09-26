@@ -59,7 +59,7 @@ export class UserEditComponent implements OnInit {
             this.identity.password,
             this.identity.roleId,
             this.identity.community,
-            this.identity.unitId,
+            this.identity.unit_id,
             this.identity.picture
         );
 
@@ -74,6 +74,50 @@ export class UserEditComponent implements OnInit {
 
                 if (response && response.status && response.status == 'success') {
                     this.status = 'success';
+
+                    if (response.changes.name) {
+                        this.user.name = response.changes.name;
+                    }
+
+                    if (response.changes.surname) {
+                        this.user.surname = response.changes.name;
+                    }
+
+                    if (response.changes.email) {
+                        this.user.email = response.changes.email;
+                    }
+
+                    if (response.changes.birthDate) {
+                        this.user.birthDate = response.changes.birthDate;
+                    }
+
+                    if (response.changes.birthDate) {
+                        this.user.birthDate = response.changes.birthDate;
+                    }
+
+                    if (response.changes.profesion) {
+                        this.user.profesion = response.changes.profesion;
+                    }
+
+                    if (response.changes.institute) {
+                        this.user.institute = response.changes.institute;
+                    }
+
+                    if (response.changes.roleId) {
+                        this.user.roleId = response.changes.roleId;
+                    }
+
+                    if (response.changes.community) {
+                        this.user.community = response.changes.community;
+                    }
+
+                    if (response.changes.unit_id) {
+                        this.user.unit_id = response.changes.unit_id;
+                    }
+
+                    if (response.changes.picture) {
+                        this.user.picture = response.changes.picture;
+                    }
 
                     response.changes.sub = this.identity.sub;
 
@@ -92,8 +136,10 @@ export class UserEditComponent implements OnInit {
         )
     }
 
-    avatarUpload(data) {
-        console.log(data);
+    avatarUpload(avatar) {
+        let data = JSON.parse(avatar.response);
+
+        this.user.picture = data.image;
     }
 
 }

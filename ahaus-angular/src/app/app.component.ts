@@ -15,12 +15,16 @@ export class AppComponent implements OnInit, DoCheck{
     public identity;
     public token;
     public url;
+    public role;
 
     constructor(
         public _userService: UserService
     ) {
         this.loadUser();
         this.url = global.url;
+
+        this.identity = this._userService.getIdentity();
+        this.role = this.identity.role_id;
     }
 
     ngOnInit() {

@@ -18,6 +18,7 @@ export class UserNewComponent implements OnInit {
   public identity;
   public token;
   public user: User;
+  public url;
 
   constructor(
       private _route: ActivatedRoute,
@@ -26,6 +27,24 @@ export class UserNewComponent implements OnInit {
   ) {
     this.page_title = "Crear Nuevo usuario";
     this.identity = this._userService.getIdentity();
+    this.token = this._userService.getToken();
+      this.user = new User(
+          this.identity.sub,
+          this.identity.name,
+          this.identity.surname,
+          this.identity.tax_id,
+          this.identity.email,
+          this.identity.birthDate,
+          this.identity.profesion,
+          this.identity.institute,
+          this.identity.password,
+          this.identity.role_id,
+          this.identity.community,
+          this.identity.unit_id,
+          this.identity.picture
+      );
+
+      this.url = global.url;
   }
 
   ngOnInit() {

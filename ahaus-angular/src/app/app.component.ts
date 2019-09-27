@@ -24,7 +24,6 @@ export class AppComponent implements OnInit, DoCheck{
         this.url = global.url;
 
         this.identity = this._userService.getIdentity();
-        this.role = this.identity.role_id;
     }
 
     ngOnInit() {

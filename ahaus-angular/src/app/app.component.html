@@ -32,6 +32,9 @@
                         {{identity.name + ' ' + identity.surname}}
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropDown">
+                        <a class="dropdown-item" [routerLink]="['/crear-usuario']">Crear Usuario</a>
+                        <a class="dropdown-item" >Crear Unidad</a>
+                        <div class="dropdown-divider"></div>
                         <a class="dropdown-item" [routerLink]="['/ajustes']">Ajustes</a>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" [routerLink]="['/logout/1']">Salir</a>

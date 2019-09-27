@@ -7,6 +7,7 @@ import {LoginComponent} from "./components/login/login.component";
 import {RegisterComponent} from "./components/register/register.component";
 import {ErrorComponent} from "./components/error/error.component";
 import {UserEditComponent} from "./components/user-edit/user-edit.component";
+import {UserNewComponent} from "./components/user-new/user-new.component";
 
 //Rutas
 
@@ -17,6 +18,7 @@ const appRoutes: Routes = [
     {path: 'logout/:sure', component: LoginComponent},
     {path: 'register', component: RegisterComponent},
     {path: 'ajustes', component:UserEditComponent},
+    {path: 'crear-usuario', component:UserNewComponent},
     {path: '**', component: ErrorComponent}
 ];
 

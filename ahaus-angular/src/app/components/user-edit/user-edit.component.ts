@@ -58,7 +58,7 @@ export class UserEditComponent implements OnInit {
             this.identity.profesion,
             this.identity.institute,
             this.identity.password,
-            this.identity.roleId,
+            this.identity.role_id,
             this.identity.community,
             this.identity.unit_id,
             this.identity.picture
@@ -107,8 +107,8 @@ export class UserEditComponent implements OnInit {
                         this.user.institute = response.changes.institute;
                     }
 
-                    if (response.changes.roleId) {
-                        this.user.roleId = response.changes.roleId;
+                    if (response.changes.role_id) {
+                        this.user.role_id = response.changes.role_id;
                     }
 
                     if (response.changes.community) {

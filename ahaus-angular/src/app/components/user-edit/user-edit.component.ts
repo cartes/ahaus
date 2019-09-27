@@ -84,7 +84,7 @@ export class UserEditComponent implements OnInit {
                     }
 
                     if (response.changes.surname) {
-                        this.user.surname = response.changes.name;
+                        this.user.surname = response.changes.surname;
                     }
 
                     if (response.changes.email) {

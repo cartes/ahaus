@@ -48,6 +48,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\User whereUpdatedAt($value)
  * @property int $community_id
  * @method static \Illuminate\Database\Eloquent\Builder|\App\User whereCommunityId($value)
+ * @property-read int|null $notifications_count
  */
 class User extends Authenticatable
 {

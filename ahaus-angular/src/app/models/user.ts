@@ -9,7 +9,7 @@ export class User {
         public profesion: string,
         public institute: string,
         public password: string,
-        public roleId: number,
+        public role_id: number,
         public community: number,
         public unit_id: number,
         public picture: string

@@ -18,9 +18,16 @@
                 </li>
             </ul>
 
-            <ul class="navbar-nav navbar-right" *ngIf="identity && identity.name">
+            <ul class="nav navbar-nav navbar-right" *ngIf="identity && identity.name">
+                <li *ngIf="identity && identity.picture" class="nav-item">
+                    <div class="avatar-mask">
+                        <img src="{{url + 'user/avatar/' + identity.picture}}" class="avatar_navbar"/>
+                    </div>
+                </li>
+
+
                 <li class="nav-item dropdown">
-                    <a class="nvabar-link dropdown-toggle" href="#" id="navbarDropDown" role="button"
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropDown" role="button"
                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         {{identity.name + ' ' + identity.surname}}
                     </a>

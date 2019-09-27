@@ -36,6 +36,7 @@ export class UserEditComponent implements OnInit {
             attachPinBtn: "Sube tu avatar..."
         }
     };
+    public url;
 
     constructor(
         private _userService: UserService
@@ -63,6 +64,7 @@ export class UserEditComponent implements OnInit {
             this.identity.picture
         );
 
+        this.url = global.url;
     }
 
     ngOnInit() {
@@ -71,6 +73,8 @@ export class UserEditComponent implements OnInit {
     onSubmit(form) {
         this._userService.update(this.token, this.user).subscribe(
             (response: any) => {
+
+                console.log(response);
 
                 if (response && response.status && response.status == 'success') {
                     this.status = 'success';

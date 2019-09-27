@@ -26,10 +26,8 @@ export class LoginComponent implements OnInit {
     ) {
         this.page_title = "Identifícate";
         this.user = new User(1, '', '', '', '', '', '', '', '', 1, null, null, '');
-        
-        if (localStorage.getItem('identity') !== null) { // Chequea si el usuario está conectado o no
-            this.identity = localStorage.getItem('identity');
-        }
+
+        this.identity = this._userService.getIdentity();
     }
 
     ngOnInit() {

@@ -8,6 +8,7 @@ export class UserService {
     public url: string;
     public identity;
     public token;
+    public role;
 
     constructor(
         public _http: HttpClient
@@ -64,4 +65,5 @@ export class UserService {
         return this.token
 
     }
+
 }

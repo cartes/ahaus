@@ -66,12 +66,13 @@
         <div class="form-group">
 
             <label for="picture">Avatar</label>
-            
-            <angular-file-uploader>
-                    [config]="afuConfig"
-                    [resetUpload]=resetVar
-                    (ApiResponse)="avatarUpload($event)">
-            </angular-file-uploader>
+
+            <angular-file-uploader
+                [config]="afuConfig"
+                [resetUpload]=resetVar
+                (ApiResponse)="avatarUpload($event)"
+            ></angular-file-uploader>
+
         </div>
 
         <input type="submit" value="Guardar cambios" class="btn btn-success">

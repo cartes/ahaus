@@ -36,6 +36,7 @@ export class UserNewComponent implements OnInit {
             attachPinBtn: "Sube tu avatar..."
         }
     };
+    public url;
 
     constructor(
         private _route: ActivatedRoute,
@@ -47,6 +48,9 @@ export class UserNewComponent implements OnInit {
 
         this.page_title = "Crear Nuevo usuario";
         this.identity = this._userService.getIdentity();
+        this.token = this._userService.getToken();
+
+        this.url = global.url;
     }
 
     ngOnInit() {

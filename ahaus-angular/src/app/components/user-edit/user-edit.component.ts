@@ -108,7 +108,7 @@ export class UserEditComponent implements OnInit {
                     }
 
                     if (response.changes.roleId) {
-                        this.user.roleId = response.changes.roleId;
+                        this.user.role_id = response.changes.role_id;
                     }
 
                     if (response.changes.community) {

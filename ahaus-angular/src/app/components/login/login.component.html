@@ -4,6 +4,10 @@
         Identifícate en la plataforma:
     </p>
 
+    <div class="alert alert-danger col-md-6 my-3" *ngIf="status == 'error'">
+        Clave o email erroneo, no has podido entrar al sistema
+    </div>
+
     <form class="col-5 ml-0 pl-0" #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)">
         <div class="form-group">
             <label for="email">Email </label>

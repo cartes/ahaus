@@ -1,3 +1,3 @@
 export var global = {
-    url: 'https://ahaus.test/api/'
+    url: 'http://localhost:8888/api/'
 }

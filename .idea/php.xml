@@ -94,6 +94,8 @@
       <path value="$PROJECT_DIR$/api-rest-ahaus/vendor/doctrine/event-manager" />
       <path value="$PROJECT_DIR$/api-rest-ahaus/vendor/caouecs/laravel-lang" />
       <path value="$PROJECT_DIR$/api-rest-ahaus/vendor/firebase/php-jwt" />
+      <path value="$PROJECT_DIR$/api-rest-ahaus/vendor/asm89/stack-cors" />
+      <path value="$PROJECT_DIR$/api-rest-ahaus/vendor/barryvdh/laravel-cors" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="7.1" />

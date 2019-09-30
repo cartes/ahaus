@@ -74,8 +74,6 @@ export class UserEditComponent implements OnInit {
         this._userService.update(this.token, this.user).subscribe(
             (response: any) => {
 
-                console.log(response);
-
                 if (response && response.status && response.status == 'success') {
                     this.status = 'success';
 

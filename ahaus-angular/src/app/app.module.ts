@@ -11,7 +11,8 @@ import {LoginComponent} from './components/login/login.component';
 import {RegisterComponent} from './components/register/register.component';
 import {ErrorComponent} from './components/error/error.component';
 import {UserEditComponent} from './components/user-edit/user-edit.component';
-import { UserNewComponent } from './components/user-new/user-new.component';
+import {UserNewComponent} from './components/user-new/user-new.component';
+import {UnitNewComponent} from './components/unit-new/unit-new.component';
 
 @NgModule({
     declarations: [
@@ -20,7 +21,8 @@ import { UserNewComponent } from './components/user-new/user-new.component';
         RegisterComponent,
         ErrorComponent,
         UserEditComponent,
-        UserNewComponent
+        UserNewComponent,
+        UnitNewComponent
     ],
     imports: [
         BrowserModule,

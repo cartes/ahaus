@@ -57,7 +57,16 @@ export class UserNewComponent implements OnInit {
     }
 
     onSubmit(form){
-        console.log(this.user);
+        this._userService.register(this.token, this.user).subscribe(
+            response => {
+                console.log(response);
+
+                form.reset();
+            },
+            error =>  {
+                console.log(<any>error);
+            }
+        );
     }
 
     avatarUpload(avatar) {

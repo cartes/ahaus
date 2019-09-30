@@ -20,6 +20,14 @@ export class UserService {
         return "Hola Mundo desde el servicio";
     }
 
+    register(user): Observable<any> {
+        let json = JSON.stringify(user);
+        let params = 'json=' + json;
+        let headers = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded');
+
+        return this._http.post(this.url + 'user/register', params, {headers: headers});
+    }
+
     signup(user, gettoken = null): Observable<any> {
         if (gettoken != null) {
             user.gettoken = true;

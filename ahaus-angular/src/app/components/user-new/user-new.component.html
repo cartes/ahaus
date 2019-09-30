@@ -14,7 +14,7 @@
         Los cambios no fueron guardados correctamente
     </div>
 
-    <form class="col-md-5 ml-0 pl-0" #userEditForm="ngForm" (ngSubmit)="onSubmit(userEditForm)">
+    <form class="col-md-5 ml-0 pl-0" #userNewForm="ngForm" (ngSubmit)="onSubmit(userNewForm)">
         <div class="form-group">
             <label for="name">Nombre </label>
             <input type="text" class="form-control" name="name" id="name" #name="ngModel" [(ngModel)]="user.name"

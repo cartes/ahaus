@@ -56,6 +56,10 @@ export class UserNewComponent implements OnInit {
     ngOnInit() {
     }
 
+    onSubmit(form){
+        console.log(this.user);
+    }
+
     avatarUpload(avatar) {
         let data = JSON.parse(avatar.response);
 

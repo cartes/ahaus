@@ -15,4 +15,10 @@ export class CommunityService {
     ) {
         this.url = global.url;
     }
+
+    index(token): Observable<any> {
+        let headers = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded').set('Authorization', token);
+
+        return this._http.get(this.url + 'community/', {headers: headers});
+    }
 }

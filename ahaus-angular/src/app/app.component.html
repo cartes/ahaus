@@ -16,6 +16,9 @@
                 <li class="nav-item" *ngIf="!identity || !identity.name">
                     <a class="nav-link" [routerLink]="['/register']">Registro</a>
                 </li>
+                <li class="nav-item" *ngIf="identity && identity.name">
+                    <a class="nav-link" [routerLink]="['/comunidades']">Comunidades</a>
+                </li>
             </ul>
 
             <ul class="nav navbar-nav navbar-right" *ngIf="identity && identity.name">

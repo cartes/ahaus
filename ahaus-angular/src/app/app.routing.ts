@@ -20,8 +20,8 @@ const appRoutes: Routes = [
     {path: 'register', component: RegisterComponent},
     {path: 'ajustes', component:UserEditComponent},
     {path: 'crear-usuario', component:UserNewComponent},
-    {path: '**', component: ErrorComponent},
     {path: 'comunidades', component: CommunityNewComponent},
+    {path: '**', component: ErrorComponent},
 ];
 
 

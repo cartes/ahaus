@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {Router, ActivatedRoute} from "@angular/router";
+import {Community} from "../../models/community";
+import {global} from "../../services/global";
 
 @Component({
   selector: 'app-community-new',

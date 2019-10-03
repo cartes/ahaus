@@ -6,9 +6,9 @@ import {appRoutingProvider, routing} from "./app.routing";
 import {FroalaEditorModule, FroalaViewModule} from "angular-froala-wysiwyg";
 import {AngularFileUploaderModule} from "angular-file-uploader";
 
-import { MatInputModule, MatButtonModule } from "@angular/material";
+import { MatInputModule, MatButtonModule, MatSelectModule, MatOptionModule } from "@angular/material";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
+import {NgbAlertConfig, NgbModule} from "@ng-bootstrap/ng-bootstrap";
 
 import { AppComponent } from './app.component';
 import {LoginComponent} from './components/login/login.component';
@@ -35,7 +35,7 @@ import {CommunityNewComponent} from './components/community-new/community-new.co
         BrowserModule,
         routing,
         FormsModule,
-        MatInputModule, MatButtonModule,
+        MatInputModule, MatButtonModule, MatSelectModule, MatOptionModule,
         ReactiveFormsModule,
         HttpClientModule,
         FroalaEditorModule.forRoot(),
@@ -45,7 +45,7 @@ import {CommunityNewComponent} from './components/community-new/community-new.co
         NgbModule,
     ],
     providers: [
-        appRoutingProvider
+        appRoutingProvider,
     ],
     bootstrap: [AppComponent]
 })

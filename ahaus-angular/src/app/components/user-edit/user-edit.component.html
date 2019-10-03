@@ -16,7 +16,7 @@
 
     <form class="col-md-5 ml-0 pl-0 user-edit-form" #userEditForm="ngForm" (ngSubmit)="onSubmit(userEditForm)">
         <mat-form-field class="example-full-width">
-            <input matInput type="text" placeholder="Nombre" class="form-control" name="name" id="name" #name="ngModel" [(ngModel)]="user.name"
+            <input matInput type="text" placeholder="Nombre" name="name" id="name" #name="ngModel" [(ngModel)]="user.name"
                    required pattern="[a-zA-Z]+"/>
 
         </mat-form-field>
@@ -25,42 +25,39 @@
         </small>
 
         <mat-form-field class="example-full-width">
-            <input matInput placeholder="Apellido" class="form-control" type="text" name="surname" id="surname" #surname="ngModel" [(ngModel)]="user.surname"
+            <input matInput placeholder="Apellido" type="text" name="surname" id="surname" #surname="ngModel" [(ngModel)]="user.surname"
                    required pattern="[a-z A-Z]+"/>
         </mat-form-field>
         <small *ngIf="!surname.valid && surname.touched" class="invalid-feedback d-block">
             El Apellido no es valido
         </small>
 
-        <div class="form-group">
-            <label for="tax_id">Rut </label>
-            <input class="form-control" type="text" name="tax_id" id="tax_id" #tax_id="ngModel" [(ngModel)]="user.tax_id"
+        <mat-form-field class="example-full-width">
+            <input matInput placeholder="Rut" type="text" name="tax_id" id="tax_id" #tax_id="ngModel" [(ngModel)]="user.tax_id"
                    required/>
 
-            <small *ngIf="!tax_id.valid && tax_id.touched" class="invalid-feedback d-block">
-                El rut no es válido
-            </small>
-        </div>
+        </mat-form-field>
+        <small *ngIf="!tax_id.valid && tax_id.touched" class="invalid-feedback d-block">
+            El rut no es válido
+        </small>
 
-        <div class="form-group">
-            <label for="email">Email </label>
-            <input class="form-control" type="email" name="email" id="email" #email="ngModel" [(ngModel)]="user.email"
+        <mat-form-field class="example-full-width">
+            <input matInput placeholder="Email" type="email" name="email" id="email" #email="ngModel" [(ngModel)]="user.email"
                    required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"/>
 
-            <small *ngIf="!email.valid && email.touched" class="invalid-feedback d-block">
-                El email no es valido
-            </small>
+        </mat-form-field>
+        <small *ngIf="!email.valid && email.touched" class="invalid-feedback d-block">
+            El email no es valido
+        </small>
 
-        </div>
-
-        <div class="form-group">
-            <label for="roleId">Usuario </label>
-            <select class="form-control" name="roleId" id="roleId">
-                <option value="1">Administrador</option>
-                <option value="2" [selected]="true">Copropietario</option>
-                <option value="3">Equipo</option>
-            </select>
-        </div>
+        <mat-form-field class="example-full-width">
+            <mat-label>Seleccione el Rol de Usuario</mat-label>
+            <mat-select name="roleId" id="roleId">
+                <mat-option value="1">Administrador</mat-option>
+                <mat-option value="2">Copropietario</mat-option>
+                <mat-option value="3">Equipo</mat-option>
+            </mat-select>
+        </mat-form-field>
 
         <div class="form-group">
 

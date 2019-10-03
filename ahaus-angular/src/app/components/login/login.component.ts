@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Input,Component, OnInit} from '@angular/core';
 import {Router, ActivatedRoute, Params} from "@angular/router";
 import {User} from "../../models/user";
 import {UserService} from "../../services/user.service";
@@ -9,7 +9,7 @@ import {__param} from "tslib";
     templateUrl: './login.component.html',
     styleUrls: ['./login.component.scss'],
     providers: [
-        UserService
+        UserService,
     ]
 })
 export class LoginComponent implements OnInit {
@@ -23,7 +23,7 @@ export class LoginComponent implements OnInit {
     constructor(
         private _userService: UserService,
         private _router: Router,
-        private _route: ActivatedRoute
+        private _route: ActivatedRoute,
     ) {
         this.page_title = "Identifícate";
         this.user = new User(1, '', '', '', '', '', '', '', '', 1, null, null, '');

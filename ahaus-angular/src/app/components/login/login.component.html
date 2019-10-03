@@ -3,10 +3,10 @@
     <p>
         Identifícate en la plataforma:
     </p>
-    {{status}}
-    <div class="alert alert-danger col-md-6 my-3" *ngIf="status == 'error'">
+
+    <ngb-alert type="danger" [dismissible]="false" *ngIf="status == 'error'">
         Clave o email erroneo, no has podido entrar al sistema
-    </div>
+    </ngb-alert>
 
     <form class="col-5 ml-0 pl-0 login-form" #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)">
         <mat-form-field class="example-full-width">

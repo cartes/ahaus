@@ -3,34 +3,24 @@
     <p>
         Identifícate en la plataforma:
     </p>
-
+    {{status}}
     <div class="alert alert-danger col-md-6 my-3" *ngIf="status == 'error'">
         Clave o email erroneo, no has podido entrar al sistema
     </div>
 
-    <form class="col-5 ml-0 pl-0" #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)">
-        <div class="form-group">
-            <label for="email">Email </label>
-            <input class="form-control" type="email" name="email" id="email" #email="ngModel" [(ngModel)]="user.email"
+    <form class="col-5 ml-0 pl-0 login-form" #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)">
+        <mat-form-field class="example-full-width">
+            <input matInput placeholder="Email" class="form-control" type="email" name="email" id="email" #email="ngModel" [(ngModel)]="user.email"
                    required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"/>
 
-            <small *ngIf="!email.valid && email.touched" class="invalid-feedback d-block">
-                El email no es valido
-            </small>
-        </div>
+        </mat-form-field>
 
-        <div class="form-group">
-
-            <label for="email">Password </label>
-            <input class="form-control" type="password" name="password" id="password" #password="ngModel"
+        <mat-form-field class="example-full-width">
+            <input matInput placeholder="Password" class="form-control" type="password" name="password" id="password" #password="ngModel"
                    [(ngModel)]="user.password"/>
+        </mat-form-field>
 
-            <small *ngIf="!password.valid && password.touched" class="invalid-feedback d-block">
-                Password no válida
-            </small>
-        </div>
-
-        <input type="submit" value="Identifícate" class="btn btn-success" [disabled]="loginForm.invalid"/>
+        <button mat-raised-button color="primary" type="submit">Identifícate</button>
     </form>
 </div>
 

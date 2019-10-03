@@ -18,6 +18,7 @@ export class UserNewComponent implements OnInit {
     public identity;
     public token;
     public user: User;
+    public status: string;
     public afuConfig = {
         multiple: false,
         formatsAllowed: ".jpg,.png,.gif,.jpeg",
@@ -50,6 +51,8 @@ export class UserNewComponent implements OnInit {
         this.identity = this._userService.getIdentity();
         this.token = this._userService.getToken();
 
+        this.status = null;
+
         this.url = global.url;
     }
 
@@ -59,11 +62,13 @@ export class UserNewComponent implements OnInit {
     onSubmit(form){
         this._userService.register(this.token, this.user).subscribe(
             response => {
+                this.status = 'success';
                 console.log(response);
 
                 form.reset();
             },
             error =>  {
+                this.status = 'error';
                 console.log(<any>error);
             }
         );

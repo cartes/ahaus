@@ -14,6 +14,7 @@ import {UserEditComponent} from './components/user-edit/user-edit.component';
 import {UserNewComponent} from './components/user-new/user-new.component';
 import {UnitNewComponent} from './components/unit-new/unit-new.component';
 import {CommunityNewComponent} from './components/community-new/community-new.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
     declarations: [
@@ -33,7 +34,8 @@ import {CommunityNewComponent} from './components/community-new/community-new.co
         HttpClientModule,
         FroalaEditorModule.forRoot(),
         FroalaViewModule.forRoot(),
-        AngularFileUploaderModule
+        AngularFileUploaderModule,
+        BrowserAnimationsModule
     ],
     providers: [
         appRoutingProvider

@@ -25,6 +25,7 @@ Route::post('api/user/upload', 'UserController@upload')->middleware(ApiAuthMiddl
 Route::get('api/user/avatar/{filename}', 'UserController@getImage');
 Route::get('api/user/detail/{id}', 'UserController@detail');
 Route::delete('api/user/delete/{id}', 'UserController@destroy');
+Route::get('api/user/list/{id}', 'UserController@getUsers');
 
 
 Route::resource('api/community', 'CommunityController');

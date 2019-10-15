@@ -16,10 +16,6 @@ export class UserService {
         this.url = global.url;
     }
 
-    test() {
-        return "Hola Mundo desde el servicio";
-    }
-
     register(token, user): Observable<any> {
         let json = JSON.stringify(user);
         let params = 'json=' + json;
@@ -74,4 +70,16 @@ export class UserService {
 
     }
 
+    getCopropietarios(id, token):Observable<any> {
+        let headers = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded')
+                                       .set('Authorization', token);
+        let uri;
+
+        if (id == null) {
+            uri = this.url + 'user/list';
+        } else {
+            uri = this.url + 'user/list/' + id;
+        }
+        return this._http.get(uri, {headers: headers});
+    }
 }

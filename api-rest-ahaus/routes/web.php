@@ -23,7 +23,7 @@ Route::post('api/user/login', 'UserController@login');
 Route::put('api/user/update', 'UserController@update')->middleware(ApiAuthMiddleware::class);
 Route::post('api/user/upload', 'UserController@upload')->middleware(ApiAuthMiddleware::class);
 Route::get('api/user/avatar/{filename}', 'UserController@getImage');
-Route::get('api/user/list/{id?}', 'UserController@getUsers')->middleware(ApiAuthMiddleware::class);
+Route::get('api/user/list/{id?}', 'UserController@getUsers');
 Route::get('api/user/detail/{id}', 'UserController@detail');
 Route::delete('api/user/delete/{id}', 'UserController@destroy');
 

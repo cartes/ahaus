@@ -57,6 +57,7 @@ export class UserNewComponent implements OnInit {
     }
 
     ngOnInit() {
+        this.getUsers();
     }
 
     onSubmit(form){
@@ -78,6 +79,17 @@ export class UserNewComponent implements OnInit {
         let data = JSON.parse(avatar.response);
 
         this.user.picture = data.image;
+    }
+
+    getUsers() {
+        this._userService.getCopropietarios(null, this.token).subscribe(  //ejemplo con 1
+            response => {
+                console.log(response);
+            },
+            error => {
+                console.log(<any>error);
+            }
+        )
     }
 
 }

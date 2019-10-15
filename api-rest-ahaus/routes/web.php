@@ -29,5 +29,4 @@ Route::delete('api/user/delete/{id}', 'UserController@destroy');
 
 Route::resource('api/community', 'CommunityController');
 
-Route::post('api/unit/regng serve
-ister', 'UnitController@register');
+Route::post('api/unit/register', 'UnitController@register');

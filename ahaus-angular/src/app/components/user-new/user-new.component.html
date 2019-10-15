@@ -51,6 +51,16 @@
         </small>
 
         <mat-form-field class="example-full-width">
+            <input matInput placeholder="Cree una password" class="form-control" type="text" name="password" id="password" #password="ngModel" [(ngModel)]="user.password"
+                   required />
+
+        </mat-form-field>
+        <small *ngIf="!email.valid && email.touched" class="invalid-feedback d-block">
+            El email no es valido
+        </small>
+
+
+        <mat-form-field class="example-full-width">
             <mat-label>Seleccione el Rol de Usuario</mat-label>
             <mat-select name="roleId" id="roleId">
                 <mat-option value="1">Administrador</mat-option>

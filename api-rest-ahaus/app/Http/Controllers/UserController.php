@@ -18,6 +18,34 @@ class UserController extends Controller
         $this->middleware("cors");
     }
 
+    public function getUsers(Request $request) {
+        $json = $request->input('json', null);
+        $params = json_decode($json);
+        $params_array = json_decode($json, true);
+
+        if (!empty($params_array) && !empty($params)) {
+            if (!empty($params->community)) {
+                $community_id = $params->community;
+                $users = User::where('community_id', $community_id);
+            } else {
+                $users = User::all();
+            }
+            $data = [
+                'status' => 'success',
+                'code' => 200,
+                'user' => $users
+            ];
+        } else {
+            $data = [
+                'status' => 'error',
+                'code' => 400,
+                'message' => 'No hay inofrmación'
+            ];
+        }
+
+        return response()->json($data, $data['code']);
+    }
+
     public function login(Request $request)
     {
 

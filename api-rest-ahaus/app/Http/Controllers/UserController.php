@@ -20,8 +20,7 @@ class UserController extends Controller
 
     public function getUsers($id = null) {
         if (!empty($id)) {
-            $community_id = $params->community;
-            $users = User::where('community_id', $community_id);
+            $users = User::where('community_id', $id)->get();
         } else {
             $users = User::all();
         }

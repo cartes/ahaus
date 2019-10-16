@@ -64,6 +64,7 @@ class JwtAuth
                 'institute' => $user->institute,
                 'picture' => $user->picture,
                 'role_id' => $user->role_id,
+                'community_id' => $user->community_id,
                 'iat' => time(),
                 'exp' => time() + (7 * 24 * 60 * 60)
             ];

@@ -10,7 +10,7 @@ export class User {
         public institute: string,
         public password: string,
         public role_id: number,
-        public community: number,
+        public community_id: number,
         public unit_id: number,
         public picture: string
     ) {}

@@ -11,7 +11,7 @@ export class UserService {
     public role;
 
     constructor(
-        public _http: HttpClient
+        private _http: HttpClient
     ) {
         this.url = global.url;
     }

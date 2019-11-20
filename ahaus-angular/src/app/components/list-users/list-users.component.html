@@ -1,1 +1,10 @@
-<p>list-users works!</p>
+<div class="container mt-3 pt-2" *ngIf="listUsers">
+    <div class="row" *ngFor="let user of listUsers">
+        <div class="col-4 mb-2 pb-2">
+            {{user.name}} {{user.surname}}
+        </div>
+        <div class="col-4 mb-2 pb-2">
+            {{user.tax_id}}
+        </div>
+    </div>
+</div>

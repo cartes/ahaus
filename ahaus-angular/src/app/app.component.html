@@ -35,7 +35,7 @@
                         {{identity.name + ' ' + identity.surname }}
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropDown">
-                        <a class="dropdown-item" [routerLink]="['/crear-usuario']" *ngIf="identity.role_id ==0">Crear Usuario</a>
+                        <a class="dropdown-item" [routerLink]="['/crear-usuario']" *ngIf="identity.role_id==1">Crear Usuario</a>
                         <a class="dropdown-item" >Crear Unidad</a>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" [routerLink]="['/ajustes']">Ajustes</a>

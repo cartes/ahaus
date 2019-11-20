@@ -18,6 +18,7 @@ export class UserNewComponent implements OnInit {
     public identity;
     public token;
     public user: User;
+    public userList: Array<User>;
     public status: string;
     public afuConfig = {
         multiple: false,
@@ -46,13 +47,11 @@ export class UserNewComponent implements OnInit {
     ) {
         this.user = new User(1, '', '', '', '', '', '', '', '', 1, null, null, null);
 
-
         this.page_title = "Crear Nuevo usuario";
         this.identity = this._userService.getIdentity();
         this.token = this._userService.getToken();
 
         this.status = null;
-
         this.url = global.url;
     }
 
@@ -77,19 +76,22 @@ export class UserNewComponent implements OnInit {
 
     avatarUpload(avatar) {
         let data = JSON.parse(avatar.response);
-
         this.user.picture = data.image;
     }
 
     getUsers() {
-        this._userService.getCopropietarios(null, this.token).subscribe(  //ejemplo con 1
+        let id = this.identity.community_id;
+
+        this._userService.getCopropietarios(id, this.token).subscribe(
             response => {
-                console.log(response);
+                if (response.status == 'success') {
+                    this.userList = response.users;
+                }
             },
             error => {
                 console.log(<any>error);
             }
-        )
+        );
     }
 
 }

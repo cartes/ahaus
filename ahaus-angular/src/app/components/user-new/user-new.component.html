@@ -63,15 +63,15 @@
         <mat-form-field class="example-full-width">
             <mat-label>Seleccione el Rol de Usuario</mat-label>
             <mat-select name="roleId" id="roleId">
-                <mat-option value="1">Administrador</mat-option>
-                <mat-option value="2">Copropietario</mat-option>
-                <mat-option value="3">Equipo</mat-option>
+                <mat-option value="2">Administrador</mat-option>
+                <mat-option value="3">Copropietario</mat-option>
+                <mat-option value="4">Equipo</mat-option>
             </mat-select>
         </mat-form-field>
 
         <div class="form-group">
 
-            <label>Avatar</label>
+            <mat-label>Avatar</mat-label>
 
             <angular-file-uploader
                 [config]="afuConfig"
@@ -84,4 +84,7 @@
     </form>
 
 
+</div>
+<div class="col-12 my-3" *ngIf="userList">
+    <app-list-users [listUsers]="userList"></app-list-users>
 </div>

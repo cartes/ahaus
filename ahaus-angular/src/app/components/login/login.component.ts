@@ -1,4 +1,4 @@
-import {Input,Component, OnInit} from '@angular/core';
+import {Input, Component, OnInit} from '@angular/core';
 import {Router, ActivatedRoute, Params} from "@angular/router";
 import {User} from "../../models/user";
 import {UserService} from "../../services/user.service";
@@ -76,7 +76,7 @@ export class LoginComponent implements OnInit {
     logout() {
         this._route.params.subscribe(params => {
             let logout = +params['sure'];
-            
+
             if (logout == 1) {
                 localStorage.removeItem('identity');
                 localStorage.removeItem('token');

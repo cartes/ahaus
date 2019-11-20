@@ -24,4 +24,6 @@ class Role extends Model
     const ADMIN = 1;
     const REGULAR = 2;
     const CLIENT = 3;
+
+    public $timestamps = false;
 }

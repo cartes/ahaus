@@ -59,7 +59,7 @@ export class UserEditComponent implements OnInit {
             this.identity.institute,
             this.identity.password,
             this.identity.role_id,
-            this.identity.community,
+            this.identity.community_id,
             this.identity.unit_id,
             this.identity.picture
         );
@@ -73,8 +73,8 @@ export class UserEditComponent implements OnInit {
     onSubmit(form) {
         this._userService.update(this.token, this.user).subscribe(
             (response: any) => {
-
-                if (response && response.status && response.status == 'success') {
+                console.log(response);
+                if (response && response.status) {
                     this.status = 'success';
 
                     if (response.changes.name) {
@@ -110,7 +110,7 @@ export class UserEditComponent implements OnInit {
                     }
 
                     if (response.changes.community) {
-                        this.user.community = response.changes.community;
+                        this.user.community_id = response.changes.community_id;
                     }
 
                     if (response.changes.unit_id) {
@@ -140,6 +140,7 @@ export class UserEditComponent implements OnInit {
 
     avatarUpload(avatar) {
         let data = JSON.parse(avatar.response);
+        console.log(data.image);
 
         this.user.picture = data.image;
     }

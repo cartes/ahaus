@@ -63,8 +63,7 @@ export class UserNewComponent implements OnInit {
         this._userService.register(this.token, this.user).subscribe(
             response => {
                 this.status = 'success';
-                console.log(response);
-
+                this.getUsers();
                 form.reset();
             },
             error =>  {

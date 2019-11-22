@@ -1,4 +1,7 @@
 <div class="container mt-3 pt-2" *ngIf="listUsers">
+    <div class="row py-3">
+        <h2>Listado de Usuarios</h2>
+    </div>
     <div class="row" *ngFor="let user of listUsers">
         <div class="col-4 mb-2 pb-2">
             {{user.name}} {{user.surname}}

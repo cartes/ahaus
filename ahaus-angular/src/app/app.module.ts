@@ -19,7 +19,7 @@ import { UserNewComponent } from './components/user-new/user-new.component';
 import { UnitNewComponent } from './components/unit-new/unit-new.component';
 import { CommunityNewComponent } from './components/community-new/community-new.component';
 import { ListUsersComponent } from './components/list-users/list-users.component';
-import { CommunityComponent } from './community/community.component';
+import { CommunityComponent } from './components/community/community.component';
 
 
 @NgModule({

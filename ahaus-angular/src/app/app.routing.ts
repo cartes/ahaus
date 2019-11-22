@@ -8,7 +8,7 @@ import {RegisterComponent} from "./components/register/register.component";
 import {ErrorComponent} from "./components/error/error.component";
 import {UserEditComponent} from "./components/user-edit/user-edit.component";
 import {UserNewComponent} from "./components/user-new/user-new.component";
-import {CommunityComponent} from "./community/community.component";
+import {CommunityComponent} from "./components/community/community.component";
 
 //Rutas
 

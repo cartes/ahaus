@@ -42,12 +42,11 @@ export class UserEditComponent implements OnInit {
         private _userService: UserService
     ) {
         this.page_title = 'Ajustes de usuario';
-        this.user = new User(1, '', '', '', '', '', '', '', '', 1, null, null, '');
-
         this.identity = this._userService.getIdentity();
         this.token = this._userService.getToken();
-
-
+        if (!this.identity) {
+            this.identity = { sub: 1, name: '', surname: '', tax_id: '', email: '', birthDate: '', profesion: '', institute: '', password: '', role_id: 1, community_id: null, unit_id: null, picture: '' };
+        }
         this.user = new User(
             this.identity.sub,
             this.identity.name,
@@ -87,10 +86,6 @@ export class UserEditComponent implements OnInit {
 
                     if (response.changes.email) {
                         this.user.email = response.changes.email;
-                    }
-
-                    if (response.changes.birthDate) {
-                        this.user.birthDate = response.changes.birthDate;
                     }
 
                     if (response.changes.birthDate) {
@@ -139,10 +134,11 @@ export class UserEditComponent implements OnInit {
     }
 
     avatarUpload(avatar) {
-        let data = JSON.parse(avatar.response);
-        console.log(data.image);
-
-        this.user.picture = data.image;
+        if(avatar && avatar.response) {
+            let data = JSON.parse(avatar.response);
+            console.log(data.image);
+            this.user.picture = data.image;
+        }
     }
 
 }

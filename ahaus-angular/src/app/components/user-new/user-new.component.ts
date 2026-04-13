@@ -45,10 +45,12 @@ export class UserNewComponent implements OnInit {
         private _router: Router,
         private _userService: UserService
     ) {
+        if (!this.identity) { this.identity = { sub: 1, name: '', surname: '', tax_id: '', email: '', birthDate: '', profesion: '', institute: '', password: '', role_id: 1, community_id: null, unit_id: null, picture: '' }; }
         this.user = new User(1, '', '', '', '', '', '', '', '', 1, null, null, null);
 
         this.page_title = "Crear Nuevo usuario";
         this.identity = this._userService.getIdentity();
+        if (!this.identity) { this.identity = { sub: 1, name: '', surname: '', tax_id: '', email: '', birthDate: '', profesion: '', institute: '', password: '', role_id: 1, community_id: null, unit_id: null, picture: '' }; }
         this.token = this._userService.getToken();
 
         this.status = null;
